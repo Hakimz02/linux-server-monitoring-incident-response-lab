@@ -38,6 +38,7 @@ The lab focuses on checking server health, identifying simulated infrastructure 
 * `incident-disk-usage-alert.md` - Incident report for simulated disk usage alert caused by large log file growth
 * `incident-high-cpu-usage.md` - Incident report for simulated high CPU usage caused by runaway process
 * `monitoring-command-cheatsheet.md` - Summary of monitoring and troubleshooting commands
+* `itsm-ticketing-escalation-practice.md` - Sample L1/NOC incident ticket updates and escalation handoff notes
 
 ## Incident Reports
 
@@ -83,4 +84,6 @@ Examples practiced:
 * Large file identification and cleanup
 * High CPU process investigation
 * Runaway process termination
+* ITSM-style ticket documentation
+* Escalation handoff notes
 * Incident documentation
