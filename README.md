@@ -28,12 +28,15 @@ The lab focuses on checking server health, identifying simulated infrastructure 
 * `ss`
 * `fallocate`
 * `rm`
+* `ps aux`
+* `kill`
 
 ## Files Included
 
 * `baseline.md` - Server baseline health check
 * `incident-nginx-down.md` - Incident report for simulated Nginx service outage
 * `incident-disk-usage-alert.md` - Incident report for simulated disk usage alert caused by large log file growth
+* `incident-high-cpu-usage.md` - Incident report for simulated high CPU usage caused by runaway process
 * `monitoring-command-cheatsheet.md` - Summary of monitoring and troubleshooting commands
 
 ## Incident Reports
@@ -54,6 +57,14 @@ The issue was investigated using `df -h` to check filesystem usage and `du -h` t
 
 Resolution: The large test log file was removed after confirmation, and disk usage returned from 79% back to the original baseline of 68%.
 
+### Incident 3: High CPU Usage Alert
+
+A high CPU usage alert was simulated by running a background process that consumed nearly 100% CPU.
+
+The issue was investigated using `uptime` to compare server load and `ps aux --sort=-%cpu` to identify the top CPU-consuming process.
+
+Resolution: The runaway process was stopped using `kill`, and server load decreased after remediation.
+
 ## Key Learning Outcome
 
 This lab helped practice basic NOC and infrastructure support troubleshooting flows:
@@ -70,4 +81,6 @@ Examples practiced:
 * Listening port verification
 * Disk usage investigation
 * Large file identification and cleanup
+* High CPU process investigation
+* Runaway process termination
 * Incident documentation
