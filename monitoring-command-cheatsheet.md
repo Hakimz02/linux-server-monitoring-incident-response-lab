@@ -93,3 +93,60 @@ When a web server is unreachable:
 4. Identify root cause
 5. Apply resolution
 6. Verify service recovery
+
+
+## Disk Usage Investigation Commands
+
+### df -h /
+
+Used to check disk usage for the root filesystem.
+
+Example:
+```bash
+df -h /
+```
+
+Use case:
+Helps identify whether the main filesystem is running low on available disk space.
+
+---
+
+### du
+
+Used to check which directories or files are consuming disk space.
+
+Example:
+```bash
+sudo du -xh --max-depth=2 /var/log 2>/dev/null | sort -h | tail -10
+```
+
+Use case:
+Helps narrow down large directories during disk usage alerts.
+
+---
+
+### ls -lh
+
+Used to check file details such as size, owner, permissions, and modified date.
+
+Example:
+```bash
+sudo ls -lh /var/log/monitoring-lab/application-test.log
+```
+
+Use case:
+Helps confirm the exact large file before taking action.
+
+---
+
+### rm
+
+Used to remove unnecessary files.
+
+Example:
+```bash
+sudo rm /var/log/monitoring-lab/application-test.log
+```
+
+Use case:
+Used only after confirming the file is safe to remove.

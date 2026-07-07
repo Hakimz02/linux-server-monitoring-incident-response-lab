@@ -218,9 +218,9 @@ After the file was removed, disk usage returned to the original baseline of 68%.
 
 ## Lessons Learned
 
-* Disk usage alerts should be investigated by checking filesystem usage first.
-* `df -h` is useful for identifying high-level filesystem usage.
-* `du -h` is useful for finding which directories and files are consuming disk space.
-* The exact file causing disk growth should be confirmed before deletion.
-* Post-remediation verification is important to confirm that the issue is resolved.
-* For production systems, large log files should usually be rotated, compressed, archived, or escalated according to SOP instead of being deleted without approval.
+* Disk usage alerts should be verified first using `df -h` to identify which filesystem is affected.
+* `du` is useful to narrow down which directory or file is consuming the most disk space.
+* Large log files can cause disk usage to increase and may affect application logging, services, or system stability.
+* The exact file path and size should be confirmed before removing any file.
+* After remediation, disk usage should be checked again to confirm that the issue has been resolved.
+* In a real production environment, repeated log growth should be escalated for log rotation, application log review, or storage planning.
